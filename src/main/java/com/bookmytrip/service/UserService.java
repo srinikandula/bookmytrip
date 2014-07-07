@@ -1,6 +1,6 @@
-package com.examples.service;
+package com.bookmytrip.service;
 
-import com.examples.domain.User;
+import com.bookmytrip.domain.User;
 
 public interface UserService {
 

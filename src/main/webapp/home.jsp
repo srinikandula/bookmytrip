@@ -13,23 +13,18 @@
 </head>
 <body>
 <script type="text/javascript">
-console.log("2");
-var Weather = Backbone.Model.extend({
+var User = Backbone.Model.extend({
 	urlRoot:'rs/user'
 });
-console.log("1");
-var user = new Weather();
-console.log("2");
-var weatherreport={zipCode:'500059',
-		cityName:'SARSWATHI NAGAR',
+var user = new User();
+var weatherreport={userName:'500059',
+		password:'SARSWATHI NAGAR',
 		state:'ANDHRA PRADESH',
 		temperature:'32'
 };
-console.log("3");
 user.save(weatherreport, {
 	success: function(user){
-		console.log("Here");
-		alert(user.toJson());
+		console.log(user);
 	}
 });
 </script>
