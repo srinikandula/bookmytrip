@@ -15,7 +15,7 @@ import javax.ws.rs.ext.MessageBodyReader;
 import javax.ws.rs.ext.Provider;
 
 import com.bookmytrip.domain.User;
-import com.google.gson.Gson;
+import com.bookmytrip.formatter.JSONFormatter;
 
 @Provider
 @Consumes(MediaType.APPLICATION_JSON)
@@ -32,12 +32,10 @@ public class UserJSONReader implements MessageBodyReader<User> {
 			MultivaluedMap<String, String> headers, InputStream in)
 			throws IOException, WebApplicationException {
 		String formData = readAsString(in);
-		Gson gson = new Gson();
-		User user = gson.fromJson(formData, User.class);
-		return user;
+		return (User)JSONFormatter.toObject(formData, User.class);
 	}
 
-	public final String readAsString(InputStream in) throws IOException {
+	private final String readAsString(InputStream in) throws IOException {
 		Reader reader = new InputStreamReader(in);
 		StringBuilder sb = new StringBuilder();
 

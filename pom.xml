@@ -58,6 +58,12 @@
 			<version>1.7.7</version>
 		</dependency>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-annotations</artifactId>
 			<version>3.5.4-Final</version>
@@ -76,7 +82,7 @@
 				<configuration>
 					<url>http://localhost:8080/manager</url>
 					<server>TomcatServer</server>
-					<path>/springMvc</path>
+					<path>/bookmytrip</path>
 				</configuration>
 			</plugin>
 			<plugin>
