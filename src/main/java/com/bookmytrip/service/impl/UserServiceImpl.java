@@ -7,6 +7,17 @@ import com.bookmytrip.domain.User;
 import com.bookmytrip.service.UserService;
 
 public class UserServiceImpl implements UserService {
+	private DataSource datasource;
+	private UserDAO dao;
+	
+	public UserDAO getDao() {
+		return dao;
+	}
+
+	public void setDao(UserDAO dao) {
+		this.dao = dao;
+	}
+
 	public DataSource getDatasource() {
 		return datasource;
 	}
@@ -14,12 +25,11 @@ public class UserServiceImpl implements UserService {
 	public void setDatasource(DataSource datasource) {
 		this.datasource = datasource;
 	}
-
-	private DataSource datasource;
-	
-	public void saveUser(User user){
-		UserDAO dao = new UserDAO();
-		dao.createUser(user);
+	public Integer saveUser(User user){
+		if(user == null)
+			return null;
+		System.out.println("saving "+user.getId());
+		return dao.createUser(user);
 	}
 
 }
